@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ds25c7icm0guj"]
+
+[ext_resource type="Script" uid="uid://di0l04njfdyel" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5a7ea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_blnjl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8j60k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_blnjl"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1688340974 node_paths=PackedStringArray("cam_origin", "cam")]
+script = ExtResource("1_v0iea")
+cam_origin = NodePath("Cam Origin")
+cam = NodePath("Cam Origin/SpringArm3D/Camera3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=446744539]
+mesh = SubResource("CapsuleMesh_5a7ea")
+surface_material_override/0 = SubResource("StandardMaterial3D_a02cp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=84606252]
+transform = Transform3D(1, 0, 0, 0, 0.4367568, 0, 0, 0, 0.7512306, 0, 0.35124218, -0.31388688)
+mesh = SubResource("BoxMesh_blnjl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1077158762]
+shape = SubResource("CapsuleShape3D_8j60k")
+
+[node name="Cam Origin" type="Node3D" parent="." unique_id=64025068]
+transform = Transform3D(1, 0, 0, 0, 0.987702, 0.15634827, 0, -0.15634827, 0.987702, 0, 1.2079173, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Cam Origin" unique_id=2113492214]
+shape = SubResource("SphereShape3D_blnjl")
+spring_length = 4.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Cam Origin/SpringArm3D" unique_id=431145031]
+transform = Transform3D(1, 0, 0, 0, 0.9575664, 0.28821298, 0, -0.28821298, 0.9575664, -0.46157002, 1.0508907, 4.1299424)
