@@ -98,12 +98,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341, 0.09355688, -0.1432644
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6267822)
 
 [node name="Torso" type="Marker3D" parent="IK" unique_id=1854118577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9497999, 0.6384816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0022645, 0.6384816)
 
 [node name="X Bot" parent="IK/Torso" unique_id=468943279 instance=ExtResource("2_gmi1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2158337, -1.0975919)
 
-[node name="Skeleton3D" parent="IK/Torso/X Bot" index="0" unique_id=2143039717]
+[node name="Skeleton3D" parent="IK/Torso/X Bot" index="0" unique_id=15331930]
 bones/11/rotation = Quaternion(0.25328454, 0.061618283, -0.2282103, 0.93806726)
 bones/13/rotation = Quaternion(-0.0016647386, -0.00080778124, 0.0069197505, 0.9999744)
 bones/15/rotation = Quaternion(-6.059341e-07, 9.9535276e-11, -0.00016426753, 1)
@@ -234,7 +234,7 @@ settings/7/joints/1/limitation = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0898616)
 
 [node name="Hips" type="Marker3D" parent="IK" unique_id=566565465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669009, 0.61370564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68299353, 0.61370564)
 
 [node name="hips" type="Node3D" parent="IK/Hips" unique_id=1461990615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0015206)
@@ -252,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008563355, 0.4176606, 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
 [node name="Right Ankle" type="Marker3D" parent="IK/Hips" unique_id=606269414]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07438472, -0.7724123, -0.7024704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07438472, -0.7389222, -0.7024704)
 
 [node name="right ankle" type="Node3D" parent="IK/Hips/Right Ankle" unique_id=129459641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
