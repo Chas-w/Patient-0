@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://p88wd3jkk5uv"]
+
+[ext_resource type="Script" uid="uid://b3i4hi0ue587y" path="res://Scripts/IK_Controller.gd" id="1_qgarn"]
+[ext_resource type="PackedScene" uid="uid://c0y5sdmnalgnx" path="res://Imports/Mesh/X Bot.fbx" id="2_nxl5k"]
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_hqfwp"]
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_hxxba"]
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_t55vx"]
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_bwwlt"]
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_smthl"]
+angle = 3.4906585
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_v8hff"]
+angle = 1.7453293
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_i38fa"]
+angle = 3.4906585
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_6act2"]
+angle = 1.7453293
+
+[node name="ik test" type="Node3D" unique_id=331947008]
+visible = false
+script = ExtResource("1_qgarn")
+
+[node name="X Bot" parent="." unique_id=468943279 instance=ExtResource("2_nxl5k")]
+
+[node name="Skeleton3D" parent="X Bot" index="0" unique_id=2143039717]
+bones/11/rotation = Quaternion(0.25328454, 0.061618283, -0.2282103, 0.93806726)
+bones/13/rotation = Quaternion(-0.0016647386, -0.00080778124, 0.0069197505, 0.9999744)
+bones/15/rotation = Quaternion(-6.059341e-07, 9.9535276e-11, -0.00016426753, 1)
+bones/16/rotation = Quaternion(-6.084827e-20, 0, 0.00025564426, 1)
+bones/17/rotation = Quaternion(-1.010017e-20, 0, -8.792197e-05, 1)
+bones/19/rotation = Quaternion(-9.78174e-07, 4.9085347e-10, -0.0005018059, 0.9999999)
+bones/20/rotation = Quaternion(-1.7667906e-20, -2.646978e-23, 0.00084987143, 0.99999964)
+bones/21/rotation = Quaternion(-2.5239809e-19, 5.293956e-23, -0.000321842, 0.99999994)
+bones/23/rotation = Quaternion(6.963166e-08, 1.085061e-11, 0.0001558293, 1)
+bones/24/rotation = Quaternion(-3.761026e-20, 0, -0.0002215151, 1)
+bones/25/rotation = Quaternion(2.317801e-20, 6.617445e-24, -0.0001128051, 1)
+bones/27/rotation = Quaternion(4.6707196e-06, 2.430471e-09, 0.000520363, 0.9999999)
+bones/28/rotation = Quaternion(4.8573726e-21, -6.617445e-24, 0.00084623165, 0.99999964)
+bones/29/rotation = Quaternion(-1.2429584e-21, 8.271806e-25, -0.0004967778, 0.9999999)
+bones/37/rotation = Quaternion(-0.0015313593, 0.0007452554, -0.006073121, 0.99998015)
+bones/45/rotation = Quaternion(-4.2758992e-07, -8.846624e-12, 2.0689502e-05, 1)
+bones/55/rotation = Quaternion(2.704767e-09, 0.0103564765, 0.9999464, 2.6115273e-07)
+bones/60/rotation = Quaternion(2.8191485e-09, 0.01036796, 0.9999463, 2.71895e-07)
+
+[node name="CCDIK3D" type="CCDIK3D" parent="X Bot/Skeleton3D" index="2" unique_id=614205927]
+angular_delta_limit = 1.5707963267948966
+deterministic = true
+setting_count = 9
+settings/0/target_node = NodePath("../../../Left Elbow Target")
+settings/1/target_node = NodePath("../../../Left Arm Target")
+settings/2/target_node = NodePath("../../../Right Arm Target")
+settings/3/target_node = NodePath("../../../Right Elbow Target")
+settings/4/target_node = NodePath("../../../Left Knee Target")
+settings/5/target_node = NodePath("../../../Left Leg Target")
+settings/6/target_node = NodePath("../../../Right Knee Target")
+settings/7/target_node = NodePath("../../../Right Leg Target")
+settings/8/target_node = NodePath("../../../Chest Target")
+settings/0/root_bone_name = "mixamorig_LeftArm"
+settings/0/root_bone = 32
+settings/0/end_bone_name = "mixamorig_LeftForeArm"
+settings/0/end_bone = 33
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/1/root_bone_name = "mixamorig_LeftForeArm"
+settings/1/root_bone = 33
+settings/1/end_bone_name = "mixamorig_LeftHand"
+settings/1/end_bone = 34
+settings/1/extend_end_bone = false
+settings/1/joint_count = 2
+settings/2/root_bone_name = "mixamorig_RightForeArm"
+settings/2/root_bone = 9
+settings/2/end_bone_name = "mixamorig_RightHand"
+settings/2/end_bone = 10
+settings/2/extend_end_bone = false
+settings/2/joint_count = 2
+settings/3/root_bone_name = "mixamorig_RightArm"
+settings/3/root_bone = 8
+settings/3/end_bone_name = "mixamorig_RightForeArm"
+settings/3/end_bone = 9
+settings/3/extend_end_bone = false
+settings/3/joint_count = 2
+settings/4/root_bone_name = "mixamorig_LeftUpLeg"
+settings/4/root_bone = 60
+settings/4/end_bone_name = "mixamorig_LeftLeg"
+settings/4/end_bone = 61
+settings/4/extend_end_bone = false
+settings/4/joint_count = 2
+settings/5/root_bone_name = "mixamorig_LeftLeg"
+settings/5/root_bone = 61
+settings/5/end_bone_name = "mixamorig_LeftFoot"
+settings/5/end_bone = 62
+settings/5/extend_end_bone = false
+settings/5/joint_count = 2
+settings/6/root_bone_name = "mixamorig_RightUpLeg"
+settings/6/root_bone = 55
+settings/6/end_bone_name = "mixamorig_RightLeg"
+settings/6/end_bone = 56
+settings/6/extend_end_bone = false
+settings/6/joint_count = 2
+settings/7/root_bone_name = "mixamorig_RightLeg"
+settings/7/root_bone = 56
+settings/7/end_bone_name = "mixamorig_RightFoot"
+settings/7/end_bone = 57
+settings/7/extend_end_bone = false
+settings/7/joint_count = 2
+settings/8/root_bone_name = "mixamorig_Spine"
+settings/8/root_bone = 1
+settings/8/end_bone_name = "mixamorig_Spine2"
+settings/8/end_bone = 3
+settings/8/extend_end_bone = false
+settings/8/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_hqfwp")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/1/joints/0/rotation_axis = 3
+settings/1/joints/0/limitation = SubResource("JointLimitationCone3D_hxxba")
+settings/1/joints/0/limitation/right_axis = 0
+settings/1/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0.5, 1)
+settings/1/joints/1/rotation_axis = 3
+settings/1/joints/1/limitation = null
+settings/2/joints/0/rotation_axis = 3
+settings/2/joints/0/limitation = SubResource("JointLimitationCone3D_t55vx")
+settings/2/joints/0/limitation/right_axis = 0
+settings/2/joints/0/limitation/rotation_offset = Quaternion(0, 0, -0.5, 1)
+settings/2/joints/1/rotation_axis = 3
+settings/2/joints/1/limitation = null
+settings/3/joints/0/rotation_axis = 3
+settings/3/joints/0/limitation = SubResource("JointLimitationCone3D_bwwlt")
+settings/3/joints/0/limitation/right_axis = 0
+settings/3/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/3/joints/1/rotation_axis = 3
+settings/3/joints/1/limitation = null
+settings/4/joints/0/rotation_axis = 3
+settings/4/joints/0/limitation = SubResource("JointLimitationCone3D_smthl")
+settings/4/joints/0/limitation/right_axis = 0
+settings/4/joints/0/limitation/rotation_offset = Quaternion(0.1, 0, 0, 1)
+settings/4/joints/1/rotation_axis = 3
+settings/4/joints/1/limitation = null
+settings/5/joints/0/rotation_axis = 3
+settings/5/joints/0/limitation = SubResource("JointLimitationCone3D_v8hff")
+settings/5/joints/0/limitation/right_axis = 0
+settings/5/joints/0/limitation/rotation_offset = Quaternion(-0.265, 0, 0, 1)
+settings/5/joints/1/rotation_axis = 3
+settings/5/joints/1/limitation = null
+settings/6/joints/0/rotation_axis = 3
+settings/6/joints/0/limitation = SubResource("JointLimitationCone3D_i38fa")
+settings/6/joints/0/limitation/right_axis = 0
+settings/6/joints/0/limitation/rotation_offset = Quaternion(0.16, 0, 0, 1)
+settings/6/joints/1/rotation_axis = 3
+settings/6/joints/1/limitation = null
+settings/7/joints/0/rotation_axis = 3
+settings/7/joints/0/limitation = SubResource("JointLimitationCone3D_6act2")
+settings/7/joints/0/limitation/right_axis = 0
+settings/7/joints/0/limitation/rotation_offset = Quaternion(-0.2, 0, 0, 1)
+settings/7/joints/1/rotation_axis = 3
+settings/7/joints/1/limitation = null
+settings/8/joints/0/rotation_axis = 3
+settings/8/joints/0/limitation = null
+settings/8/joints/1/rotation_axis = 3
+settings/8/joints/1/limitation = null
+settings/8/joints/2/rotation_axis = 3
+settings/8/joints/2/limitation = null
+
+[node name="Left Elbow Target" type="Node3D" parent="." unique_id=585433121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36809355, 1.2097503, -0.072403654)
+
+[node name="Left Arm Target" type="Node3D" parent="." unique_id=1211550937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3572486, 1.5072951, 0.3628545)
+
+[node name="Right Elbow Target" type="Node3D" parent="." unique_id=892347517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3988963, 1.1953893, -0.06998734)
+
+[node name="Right Arm Target" type="Node3D" parent="." unique_id=518177984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1105795, 0.9621177, -0.35380492)
+
+[node name="Left Knee Target" type="Node3D" parent="." unique_id=1041339998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120820224, 0.7290975, 0.030139595)
+
+[node name="Left Leg Target" type="Node3D" parent="." unique_id=328451648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15641299, 0.058123738, 0.0029712915)
+
+[node name="Right Knee Target" type="Node3D" parent="." unique_id=1392309200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09976454, 0.47097683, 0.09012613)
+
+[node name="Right Leg Target" type="Node3D" parent="." unique_id=1118341817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07658251, -0.08649549, -0.018631607)
+
+[node name="Chest Target" type="Node3D" parent="." unique_id=820154914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4615667, -0.11762446)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1647443260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1476322, 1.2256749)
+
+[editable path="X Bot"]
