@@ -234,7 +234,7 @@ settings/7/joints/1/limitation = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0898616)
 
 [node name="Hips" type="Marker3D" parent="IK" unique_id=566565465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0534203, 0.61370564)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669009, 0.61370564)
 
 [node name="hips" type="Node3D" parent="IK/Hips" unique_id=1461990615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0015206)
@@ -262,5 +262,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008563355, 0.41766065, 0.0
 
 [node name="right knee" type="Node3D" parent="IK/Hips/Right Ankle/Right Knee" unique_id=1748194535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
+
+[node name="Step Checker Left" type="Marker3D" parent="." unique_id=768169618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092, 0.167, 0.246)
+
+[node name="RayCast3D" type="RayCast3D" parent="Step Checker Left" unique_id=1754296845]
+
+[node name="Step Checker Right" type="Marker3D" parent="." unique_id=1410333930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092, 0.167, 0.246)
+
+[node name="RayCast3D" type="RayCast3D" parent="Step Checker Right" unique_id=2093127088]
 
 [editable path="IK/Torso/X Bot"]
