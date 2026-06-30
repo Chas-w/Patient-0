@@ -94,9 +94,12 @@ shape = SubResource("BoxShape3D_8j60k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2487836, 0)
 
 [node name="Procedural Anim" parent="Player Controller" index="1" unique_id=1105329259]
+visible = false
 step_distance_max = 1.0
 
 [editable path="Player Controller"]
 [editable path="Player Controller/CharacterBody3D"]
+[editable path="Player Controller/CharacterBody3D/Guy"]
 [editable path="Player Controller/Procedural Anim"]
+[editable path="Player Controller/Procedural Anim/Torso/Running"]
 [editable path="Player Controller/Procedural Anim/Torso/X Bot"]

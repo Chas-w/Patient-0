@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://c8dgunqpfinpq"]
 
-[ext_resource type="PackedScene" uid="uid://gs0av1d513st" path="res://Scenes/Entities/IK.tscn" id="1_su537"]
 [ext_resource type="PackedScene" uid="uid://ds25c7icm0guj" path="res://Scenes/Entities/player.tscn" id="2_kvhhl"]
 
 [node name="Player Controller" type="Node3D" unique_id=1562478498]
 
 [node name="CharacterBody3D" parent="." unique_id=1688340974 instance=ExtResource("2_kvhhl")]
 
-[node name="Procedural Anim" parent="." unique_id=1105329259 node_paths=PackedStringArray("character_body") instance=ExtResource("1_su537")]
-transform = Transform3D(-1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, -1, 0, -0.66160834, -0.4194442)
-character_body = NodePath("../CharacterBody3D")
-
 [editable path="CharacterBody3D"]
-[editable path="Procedural Anim"]
-[editable path="Procedural Anim/Torso/X Bot"]
+[editable path="CharacterBody3D/Guy"]
