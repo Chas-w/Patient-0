@@ -3,19 +3,6 @@
 [ext_resource type="Script" uid="uid://b3i4hi0ue587y" path="res://Scripts/IK_Controller.gd" id="1_hrvkh"]
 [ext_resource type="PackedScene" uid="uid://c0y5sdmnalgnx" path="res://Imports/Mesh/X Bot.fbx" id="2_gmi1q"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hrvkh"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_gmi1q"]
-sky_material = SubResource("ProceduralSkyMaterial_hrvkh")
-
-[sub_resource type="Environment" id="Environment_hl1gf"]
-background_mode = 2
-sky = SubResource("Sky_gmi1q")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_hl1gf"]
 angle = 3.1415927
 
@@ -38,18 +25,8 @@ angle = 2.024582
 angle = 3.4906585
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_eiybu"]
-angle = 2.024582
 
-[node name="Node3D" type="Node3D" unique_id=1105329259]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1691832739]
-environment = SubResource("Environment_hl1gf")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1808303448]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="IK" type="Node3D" parent="." unique_id=331947008 node_paths=PackedStringArray("left_bicep", "left_forearm", "right_bicep", "right_forearm", "left_knee", "left_ankle", "right_knee", "right_ankle", "hips", "torso", "shoulders")]
+[node name="IK" type="Node3D" unique_id=331947008 node_paths=PackedStringArray("left_bicep", "left_forearm", "right_bicep", "right_forearm", "left_knee", "left_ankle", "right_knee", "right_ankle", "hips", "torso", "shoulders", "step_left", "step_right")]
 script = ExtResource("1_hrvkh")
 left_bicep = NodePath("Shoulders/Left Forearm/Left Bicep")
 left_forearm = NodePath("Shoulders/Left Forearm")
@@ -63,47 +40,46 @@ hips = NodePath("Hips")
 torso = NodePath("Torso")
 shoulders = NodePath("Shoulders")
 step_distance_max = 1.0
+step_left = NodePath("Step Checker Left/step left")
+step_right = NodePath("Step Checker Right/step right")
 
-[node name="Camera3D" type="Camera3D" parent="IK" unique_id=1647443260]
-transform = Transform3D(0.7507801, 0, 0.6605522, 0, 1, 0, -0.6605522, 0, 0.7507801, 1.2114122, 1.0333391, 1.5551046)
-
-[node name="Shoulders" type="Marker3D" parent="IK" unique_id=976174297]
+[node name="Shoulders" type="Marker3D" parent="." unique_id=976174297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74819994, 0.6767595)
 
-[node name="shoulders" type="Node3D" parent="IK/Shoulders" unique_id=1650467569]
+[node name="shoulders" type="Node3D" parent="Shoulders" unique_id=1650467569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0898616)
 
-[node name="Left Forearm" type="Marker3D" parent="IK/Shoulders" unique_id=1017477947]
+[node name="Left Forearm" type="Marker3D" parent="Shoulders" unique_id=1017477947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7754191, 0.013145089, -0.40054154)
 
-[node name="left forearm" type="Node3D" parent="IK/Shoulders/Left Forearm" unique_id=192634511]
+[node name="left forearm" type="Node3D" parent="Shoulders/Left Forearm" unique_id=192634511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
-[node name="Left Bicep" type="Marker3D" parent="IK/Shoulders/Left Forearm" unique_id=939415818]
+[node name="Left Bicep" type="Marker3D" parent="Shoulders/Left Forearm" unique_id=939415818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3411914, 0.093114376, -0.1436038)
 
-[node name="left bicep" type="Node3D" parent="IK/Shoulders/Left Forearm/Left Bicep" unique_id=133442263]
+[node name="left bicep" type="Node3D" parent="Shoulders/Left Forearm/Left Bicep" unique_id=133442263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6267822)
 
-[node name="Right Forearm" type="Marker3D" parent="IK/Shoulders" unique_id=2028911048]
+[node name="Right Forearm" type="Marker3D" parent="Shoulders" unique_id=2028911048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.775, 0.0124589205, -0.40038657)
 
-[node name="right forearm" type="Node3D" parent="IK/Shoulders/Right Forearm" unique_id=608850127]
+[node name="right forearm" type="Node3D" parent="Shoulders/Right Forearm" unique_id=608850127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
-[node name="Right Bicep" type="Marker3D" parent="IK/Shoulders/Right Forearm" unique_id=787725108]
+[node name="Right Bicep" type="Marker3D" parent="Shoulders/Right Forearm" unique_id=787725108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341, 0.09355688, -0.14326441)
 
-[node name="right bicep" type="Node3D" parent="IK/Shoulders/Right Forearm/Right Bicep" unique_id=116351395]
+[node name="right bicep" type="Node3D" parent="Shoulders/Right Forearm/Right Bicep" unique_id=116351395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6267822)
 
-[node name="Torso" type="Marker3D" parent="IK" unique_id=1854118577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0022645, 0.6384816)
+[node name="Torso" type="Marker3D" parent="." unique_id=1854118577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656613e-09, 1.0022645, 0.6384817)
 
-[node name="X Bot" parent="IK/Torso" unique_id=468943279 instance=ExtResource("2_gmi1q")]
+[node name="X Bot" parent="Torso" unique_id=468943279 instance=ExtResource("2_gmi1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2158337, -1.0975919)
 
-[node name="Skeleton3D" parent="IK/Torso/X Bot" index="0" unique_id=15331930]
+[node name="Skeleton3D" parent="Torso/X Bot" index="0" unique_id=2143039717]
 bones/11/rotation = Quaternion(0.25328454, 0.061618283, -0.2282103, 0.93806726)
 bones/13/rotation = Quaternion(-0.0016647386, -0.00080778124, 0.0069197505, 0.9999744)
 bones/15/rotation = Quaternion(-6.059341e-07, 9.9535276e-11, -0.00016426753, 1)
@@ -123,7 +99,7 @@ bones/45/rotation = Quaternion(-4.2758992e-07, -8.846624e-12, 2.0689502e-05, 1)
 bones/55/rotation = Quaternion(2.704767e-09, 0.0103564765, 0.9999464, 2.6115273e-07)
 bones/60/rotation = Quaternion(2.8191485e-09, 0.01036796, 0.9999463, 2.71895e-07)
 
-[node name="JacobianIK3D" type="JacobianIK3D" parent="IK/Torso/X Bot/Skeleton3D" index="2" unique_id=51438106]
+[node name="JacobianIK3D" type="JacobianIK3D" parent="Torso/X Bot/Skeleton3D" index="2" unique_id=51438106]
 setting_count = 8
 settings/0/target_node = NodePath("../../../../Shoulders/Left Forearm/Left Bicep/left bicep")
 settings/1/target_node = NodePath("../../../../Shoulders/Left Forearm/left forearm")
@@ -230,47 +206,49 @@ settings/7/joints/0/limitation/rotation_offset = Quaternion(-0.5, 0, 0, 1)
 settings/7/joints/1/rotation_axis = 3
 settings/7/joints/1/limitation = null
 
-[node name="torso" type="Node3D" parent="IK/Torso" unique_id=1986105454]
+[node name="torso" type="Node3D" parent="Torso" unique_id=1986105454]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0898616)
 
-[node name="Hips" type="Marker3D" parent="IK" unique_id=566565465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68299353, 0.61370564)
+[node name="Hips" type="Marker3D" parent="." unique_id=566565465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7553377, 0.61370564)
 
-[node name="hips" type="Node3D" parent="IK/Hips" unique_id=1461990615]
+[node name="hips" type="Node3D" parent="Hips" unique_id=1461990615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0015206)
 
-[node name="Left Ankle" type="Marker3D" parent="IK/Hips" unique_id=1523900828]
+[node name="Left Ankle" type="Marker3D" parent="Hips" unique_id=1523900828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09156335, -0.93209124, -0.72008365)
 
-[node name="left ankle" type="Node3D" parent="IK/Hips/Left Ankle" unique_id=1001494567]
+[node name="left ankle" type="Node3D" parent="Hips/Left Ankle" unique_id=1001494567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
-[node name="Left Knee" type="Marker3D" parent="IK/Hips/Left Ankle" unique_id=579273215]
+[node name="Left Knee" type="Marker3D" parent="Hips/Left Ankle" unique_id=579273215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008563355, 0.4176606, 0.052133918)
 
-[node name="left knee" type="Node3D" parent="IK/Hips/Left Ankle/Left Knee" unique_id=1713732990]
+[node name="left knee" type="Node3D" parent="Hips/Left Ankle/Left Knee" unique_id=1713732990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
-[node name="Right Ankle" type="Marker3D" parent="IK/Hips" unique_id=606269414]
+[node name="Right Ankle" type="Marker3D" parent="Hips" unique_id=606269414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07438472, -0.7389222, -0.7024704)
 
-[node name="right ankle" type="Node3D" parent="IK/Hips/Right Ankle" unique_id=129459641]
+[node name="right ankle" type="Node3D" parent="Hips/Right Ankle" unique_id=129459641]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
-[node name="Right Knee" type="Marker3D" parent="IK/Hips/Right Ankle" unique_id=548880375]
+[node name="Right Knee" type="Marker3D" parent="Hips/Right Ankle" unique_id=548880375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008563355, 0.41766065, 0.034440756)
 
-[node name="right knee" type="Node3D" parent="IK/Hips/Right Ankle/Right Knee" unique_id=1748194535]
+[node name="right knee" type="Node3D" parent="Hips/Right Ankle/Right Knee" unique_id=1748194535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
 [node name="Step Checker Left" type="Marker3D" parent="." unique_id=768169618]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092, 0.167, 0.246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092, -0.06099695, 0.246)
 
-[node name="RayCast3D" type="RayCast3D" parent="Step Checker Left" unique_id=1754296845]
+[node name="step left" type="RayCast3D" parent="Step Checker Left" unique_id=1754296845]
+debug_shape_thickness = 5
 
 [node name="Step Checker Right" type="Marker3D" parent="." unique_id=1410333930]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092, 0.167, 0.246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092, -0.06099695, 0.246)
 
-[node name="RayCast3D" type="RayCast3D" parent="Step Checker Right" unique_id=2093127088]
+[node name="step right" type="RayCast3D" parent="Step Checker Right" unique_id=2093127088]
+debug_shape_thickness = 5
 
-[editable path="IK/Torso/X Bot"]
+[editable path="Torso/X Bot"]
