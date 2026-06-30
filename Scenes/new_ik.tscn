@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bxmhq77upk8ib"]
+
+[ext_resource type="PackedScene" uid="uid://c0y5sdmnalgnx" path="res://Imports/Mesh/X Bot.fbx" id="2_vlmtu"]
+
+[sub_resource type="Curve" id="Curve_81f60"]
+
+[node name="IK" type="Node3D" unique_id=331947008]
+
+[node name="X Bot" parent="." unique_id=468943279 instance=ExtResource("2_vlmtu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656613e-09, -0.21356916, -0.2715026)
+
+[node name="Skeleton3D" parent="X Bot" index="0" unique_id=2143039717]
+bones/11/rotation = Quaternion(0.25328454, 0.061618283, -0.2282103, 0.93806726)
+bones/13/rotation = Quaternion(-0.0016647386, -0.00080778124, 0.0069197505, 0.9999744)
+bones/15/rotation = Quaternion(-6.059341e-07, 9.9535276e-11, -0.00016426753, 1)
+bones/16/rotation = Quaternion(-6.084827e-20, 0, 0.00025564426, 1)
+bones/17/rotation = Quaternion(-1.010017e-20, 0, -8.792197e-05, 1)
+bones/19/rotation = Quaternion(-9.78174e-07, 4.9085347e-10, -0.0005018059, 0.9999999)
+bones/20/rotation = Quaternion(-1.7667906e-20, -2.646978e-23, 0.00084987143, 0.99999964)
+bones/21/rotation = Quaternion(-2.5239809e-19, 5.293956e-23, -0.000321842, 0.99999994)
+bones/23/rotation = Quaternion(6.963166e-08, 1.085061e-11, 0.0001558293, 1)
+bones/24/rotation = Quaternion(-3.761026e-20, 0, -0.0002215151, 1)
+bones/25/rotation = Quaternion(2.317801e-20, 6.617445e-24, -0.0001128051, 1)
+bones/27/rotation = Quaternion(4.6707196e-06, 2.430471e-09, 0.000520363, 0.9999999)
+bones/28/rotation = Quaternion(4.8573726e-21, -6.617445e-24, 0.00084623165, 0.99999964)
+bones/29/rotation = Quaternion(-1.2429584e-21, 8.271806e-25, -0.0004967778, 0.9999999)
+bones/37/rotation = Quaternion(-0.0015313593, 0.0007452554, -0.006073121, 0.99998015)
+bones/45/rotation = Quaternion(-4.2758992e-07, -8.846624e-12, 2.0689502e-05, 1)
+bones/55/rotation = Quaternion(2.704767e-09, 0.0103564765, 0.9999464, 2.6115273e-07)
+bones/60/rotation = Quaternion(2.8191485e-09, 0.01036796, 0.9999463, 2.71895e-07)
+
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="X Bot/Skeleton3D" index="2" unique_id=1977961865]
+setting_count = 2
+settings/0/root_bone_name = "mixamorig_Hips"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "mixamorig_HeadTop_End"
+settings/0/end_bone = 6
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 3.0
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.4
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.05
+settings/0/gravity/damping_curve = SubResource("Curve_81f60")
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/joints/0/bone_name = "mixamorig_Hips"
+settings/0/joints/0/bone = 0
+settings/0/joints/1/bone_name = "mixamorig_Spine"
+settings/0/joints/1/bone = 1
+settings/0/joints/2/bone_name = "mixamorig_Spine1"
+settings/0/joints/2/bone = 2
+settings/0/joints/3/bone_name = "mixamorig_Spine2"
+settings/0/joints/3/bone = 3
+settings/0/joints/4/bone_name = "mixamorig_Neck"
+settings/0/joints/4/bone = 4
+settings/0/joints/5/bone_name = "mixamorig_Head"
+settings/0/joints/5/bone = 5
+settings/0/joints/6/bone_name = "mixamorig_HeadTop_End"
+settings/0/joints/6/bone = 6
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0
+settings/1/root_bone_name = "mixamorig_LeftUpLeg"
+settings/1/root_bone = 60
+settings/1/end_bone_name = "mixamorig_LeftFoot"
+settings/1/end_bone = 62
+settings/1/extend_end_bone = false
+settings/1/center_from = 0
+settings/1/individual_config = false
+settings/1/rotation_axis = 3
+settings/1/radius/value = 0.02
+settings/1/radius/damping_curve = null
+settings/1/stiffness/value = 1.0
+settings/1/stiffness/damping_curve = null
+settings/1/drag/value = 0.4
+settings/1/drag/damping_curve = null
+settings/1/gravity/value = 0.05
+settings/1/gravity/damping_curve = null
+settings/1/gravity/direction = Vector3(0, -1, 0)
+settings/1/joints/0/bone_name = "mixamorig_LeftUpLeg"
+settings/1/joints/0/bone = 60
+settings/1/joints/1/bone_name = "mixamorig_LeftLeg"
+settings/1/joints/1/bone = 61
+settings/1/joints/2/bone_name = "mixamorig_LeftFoot"
+settings/1/joints/2/bone = 62
+settings/1/enable_all_child_collisions = true
+settings/1/exclude_collision_count = 0
+
+[editable path="X Bot"]

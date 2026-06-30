@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b3i4hi0ue587y" path="res://Scripts/IK_Controller.gd" id="1_hrvkh"]
 [ext_resource type="PackedScene" uid="uid://c0y5sdmnalgnx" path="res://Imports/Mesh/X Bot.fbx" id="2_gmi1q"]
+[ext_resource type="PackedScene" uid="uid://dbiiqrasb7vc4" path="res://Imports/Mesh/Running.fbx" id="2_hl1gf"]
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_hl1gf"]
 angle = 3.1415927
@@ -39,9 +40,15 @@ right_ankle = NodePath("Hips/Right Ankle")
 hips = NodePath("Hips")
 torso = NodePath("Torso")
 shoulders = NodePath("Shoulders")
-step_distance_max = 1.0
+step_distance_max = 19.5
 step_left = NodePath("Step Checker Left/step left")
 step_right = NodePath("Step Checker Right/step right")
+
+[node name="Motion Follow" type="Marker3D" parent="." unique_id=517746297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7952572, 0.17671353)
+
+[node name="motion" type="Node3D" parent="Motion Follow" unique_id=1770733637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.36272472)
 
 [node name="Shoulders" type="Marker3D" parent="." unique_id=976174297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74819994, 0.6767595)
@@ -76,8 +83,119 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6267822)
 [node name="Torso" type="Marker3D" parent="." unique_id=1854118577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656613e-09, 1.0022645, 0.6384817)
 
+[node name="Running" parent="Torso" unique_id=2123897931 instance=ExtResource("2_hl1gf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2246112, -1.1459829)
+
+[node name="JacobianIK3D" type="JacobianIK3D" parent="Torso/Running/Skeleton3D" parent_id_path=PackedInt32Array(2123897931, 1726249416) index="2" unique_id=1683088019]
+setting_count = 8
+settings/0/target_node = NodePath("../../../../Shoulders/Left Forearm/Left Bicep/left bicep")
+settings/1/target_node = NodePath("../../../../Shoulders/Left Forearm/left forearm")
+settings/2/target_node = NodePath("../../../../Shoulders/Right Forearm/Right Bicep/right bicep")
+settings/3/target_node = NodePath("../../../../Shoulders/Right Forearm/right forearm")
+settings/4/target_node = NodePath("../../../../Hips/Left Ankle/Left Knee/left knee")
+settings/5/target_node = NodePath("../../../../Hips/Left Ankle/left ankle")
+settings/6/target_node = NodePath("../../../../Hips/Right Ankle/Right Knee/right knee")
+settings/7/target_node = NodePath("../../../../Hips/Right Ankle/right ankle")
+settings/0/root_bone_name = "mixamorig_LeftArm"
+settings/0/root_bone = 32
+settings/0/end_bone_name = "mixamorig_LeftForeArm"
+settings/0/end_bone = 33
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/1/root_bone_name = "mixamorig_LeftForeArm"
+settings/1/root_bone = 33
+settings/1/end_bone_name = "mixamorig_LeftHand"
+settings/1/end_bone = 34
+settings/1/extend_end_bone = false
+settings/1/joint_count = 2
+settings/2/root_bone_name = "mixamorig_RightArm"
+settings/2/root_bone = 8
+settings/2/end_bone_name = "mixamorig_RightForeArm"
+settings/2/end_bone = 9
+settings/2/extend_end_bone = false
+settings/2/joint_count = 2
+settings/3/root_bone_name = "mixamorig_RightForeArm"
+settings/3/root_bone = 9
+settings/3/end_bone_name = "mixamorig_RightHand"
+settings/3/end_bone = 10
+settings/3/extend_end_bone = false
+settings/3/joint_count = 2
+settings/4/root_bone_name = "mixamorig_LeftUpLeg"
+settings/4/root_bone = 60
+settings/4/end_bone_name = "mixamorig_LeftLeg"
+settings/4/end_bone = 61
+settings/4/extend_end_bone = false
+settings/4/joint_count = 2
+settings/5/root_bone_name = "mixamorig_LeftLeg"
+settings/5/root_bone = 61
+settings/5/end_bone_name = "mixamorig_LeftFoot"
+settings/5/end_bone = 62
+settings/5/extend_end_bone = false
+settings/5/joint_count = 2
+settings/6/root_bone_name = "mixamorig_RightUpLeg"
+settings/6/root_bone = 55
+settings/6/end_bone_name = "mixamorig_RightLeg"
+settings/6/end_bone = 56
+settings/6/extend_end_bone = false
+settings/6/joint_count = 2
+settings/7/root_bone_name = "mixamorig_RightLeg"
+settings/7/root_bone = 56
+settings/7/end_bone_name = "mixamorig_RightFoot"
+settings/7/end_bone = 57
+settings/7/extend_end_bone = false
+settings/7/joint_count = 2
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_hl1gf")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/1/joints/0/rotation_axis = 3
+settings/1/joints/0/limitation = SubResource("JointLimitationCone3D_ak2ai")
+settings/1/joints/0/limitation/right_axis = 0
+settings/1/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0.3, 1)
+settings/1/joints/1/rotation_axis = 3
+settings/1/joints/1/limitation = null
+settings/2/joints/0/rotation_axis = 3
+settings/2/joints/0/limitation = SubResource("JointLimitationCone3D_8637k")
+settings/2/joints/0/limitation/right_axis = 0
+settings/2/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/2/joints/1/rotation_axis = 3
+settings/2/joints/1/limitation = null
+settings/3/joints/0/rotation_axis = 3
+settings/3/joints/0/limitation = SubResource("JointLimitationCone3D_8vqmm")
+settings/3/joints/0/limitation/right_axis = 0
+settings/3/joints/0/limitation/rotation_offset = Quaternion(0, 0, -0.3, 1)
+settings/3/joints/1/rotation_axis = 3
+settings/3/joints/1/limitation = null
+settings/4/joints/0/rotation_axis = 3
+settings/4/joints/0/limitation = SubResource("JointLimitationCone3D_hrvkh")
+settings/4/joints/0/limitation/right_axis = 0
+settings/4/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/4/joints/1/rotation_axis = 3
+settings/4/joints/1/limitation = null
+settings/5/joints/0/rotation_axis = 0
+settings/5/joints/0/limitation = SubResource("JointLimitationCone3D_gmi1q")
+settings/5/joints/0/limitation/right_axis = 0
+settings/5/joints/0/limitation/rotation_offset = Quaternion(-0.5, 0, 0, 1)
+settings/5/joints/1/rotation_axis = 3
+settings/5/joints/1/limitation = null
+settings/6/joints/0/rotation_axis = 3
+settings/6/joints/0/limitation = SubResource("JointLimitationCone3D_ecnp8")
+settings/6/joints/0/limitation/right_axis = 0
+settings/6/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/6/joints/1/rotation_axis = 3
+settings/6/joints/1/limitation = null
+settings/7/joints/0/rotation_axis = 0
+settings/7/joints/0/limitation = SubResource("JointLimitationCone3D_eiybu")
+settings/7/joints/0/limitation/right_axis = 0
+settings/7/joints/0/limitation/rotation_offset = Quaternion(-0.5, 0, 0, 1)
+settings/7/joints/1/rotation_axis = 3
+settings/7/joints/1/limitation = null
+
 [node name="X Bot" parent="Torso" unique_id=468943279 instance=ExtResource("2_gmi1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2158337, -1.0975919)
+visible = false
 
 [node name="Skeleton3D" parent="Torso/X Bot" index="0" unique_id=2143039717]
 bones/11/rotation = Quaternion(0.25328454, 0.061618283, -0.2282103, 0.93806726)
@@ -251,4 +369,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092, -0.06099695, 0.246)
 [node name="step right" type="RayCast3D" parent="Step Checker Right" unique_id=2093127088]
 debug_shape_thickness = 5
 
+[editable path="Torso/Running"]
 [editable path="Torso/X Bot"]

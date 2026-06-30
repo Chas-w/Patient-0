@@ -40,6 +40,7 @@ func _ready():
 	
 
 func _process(delta):
+	pass
 	torso.global_position = character_body.global_position
 	torso.rotation = character_body.global_rotation
 
