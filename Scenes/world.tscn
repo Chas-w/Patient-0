@@ -2,21 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bko1vqovjcgo8" path="res://Scenes/Entities/player_pill.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://brxh4j66crg80" path="res://Scenes/Entities/npc.tscn" id="2_go701"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a02cp"]
-sky_horizon_color = Color(1.202401, 1.3681192, 1.2928836, 1)
-ground_bottom_color = Color(0.34021977, 0.93409264, 0.53715, 1)
-ground_horizon_color = Color(1.202401, 1.3681192, 1.2928836, 1)
-energy_multiplier = 8.0
-
-[sub_resource type="Sky" id="Sky_go701"]
-sky_material = SubResource("ProceduralSkyMaterial_a02cp")
-
-[sub_resource type="Environment" id="Environment_5a7ea"]
-background_mode = 2
-sky = SubResource("Sky_go701")
-ambient_light_sky_contribution = 0.22
-tonemap_mode = 2
+[ext_resource type="PackedScene" uid="uid://dfban5mvvjrv7" path="res://Imports/Mesh/Mountains.fbx" id="3_5a7ea"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yp4wr"]
 
@@ -34,9 +20,6 @@ albedo_color = Color(0.34237343, 0.20906562, 1, 1)
 
 [node name="World" type="Node3D" unique_id=1250724674]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1131830781]
-environment = SubResource("Environment_5a7ea")
-
 [node name="Ground" type="StaticBody3D" parent="." unique_id=517063511 groups=["Ground"]]
 transform = Transform3D(47.36, 0, 0, 0, 0.19999999, 0, 0, 0, 49.610004, 0, 0, 0)
 
@@ -51,6 +34,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_go701")
 transform = Transform3D(1.0227412, 0, 0, 0, 23.15281, 0, 0, 0, 0.020157225, 0, 6.8913655, -0.4911748)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/StaticBody3D2" unique_id=1892810132]
+visible = false
 mesh = SubResource("BoxMesh_go701")
 surface_material_override/0 = SubResource("StandardMaterial3D_5a7ea")
 
@@ -61,6 +45,7 @@ shape = SubResource("BoxShape3D_8j60k")
 transform = Transform3D(1.0227412, 0, 0, 0, 23.15281, 0, 0, 0, 0.020157225, 0, 6.8913655, 0.43071845)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/StaticBody3D3" unique_id=251836162]
+visible = false
 mesh = SubResource("BoxMesh_go701")
 surface_material_override/0 = SubResource("StandardMaterial3D_5a7ea")
 
@@ -72,6 +57,7 @@ transform = Transform3D(-5.233083e-08, 0, 0.021114863, 0, 23.152803, 0, -1.14289
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/StaticBody3D4" unique_id=1499082772]
 transform = Transform3D(1, 0, -5.551115e-17, 0, 1.0000001, 0, 0, 0, 1, -2.3283064e-09, 0, 2.7247143)
+visible = false
 mesh = SubResource("BoxMesh_go701")
 surface_material_override/0 = SubResource("StandardMaterial3D_5a7ea")
 
@@ -83,6 +69,7 @@ transform = Transform3D(-5.233083e-08, 0, 0.021114863, 0, 23.152803, 0, -1.14289
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/StaticBody3D5" unique_id=964660710]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, -2.2737368e-13, 0, 1, 9.313226e-10, 0, -0.9346695)
+visible = false
 mesh = SubResource("BoxMesh_go701")
 surface_material_override/0 = SubResource("StandardMaterial3D_5a7ea")
 
@@ -96,3 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1499157, 0)
 
 [node name="NPC" parent="." unique_id=440338480 instance=ExtResource("2_go701")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0775926, -6.5464115)
+
+[node name="Mountains" parent="." unique_id=834613415 instance=ExtResource("3_5a7ea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.128204, -24.777134, -28.40332)
+
+[editable path="Mountains"]

@@ -75,7 +75,6 @@ func _handle_zoom(delta):
 			zoom_cam.priority = 10
 			default_cam.priority = 0
 			_set_interact_state(Interact_State.Threaten)
-			print("threaten")
 		cam.fov = lerpf(cam.fov, ZOOM_FOV, delta * 2)
 		if(!zoomed):
 			zoomed = true
