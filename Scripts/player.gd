@@ -32,7 +32,7 @@ var zoomed : bool
 @export_group("States")
 enum Move_State{Idle,Moving,Null}
 @export var move_state : Move_State = Move_State.Idle
-enum Interact_State{Talk,Threaten, Inspect, In_Menu, Null}
+enum Interact_State{Talk,Threaten, Inspect, Attack, In_Menu, Null}
 @export var interact_state : Interact_State = Interact_State.Null
 
 func _unhandled_input(event):
