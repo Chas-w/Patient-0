@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://det1ev86alinb"]
 
-[ext_resource type="PackedScene" uid="uid://c8dgunqpfinpq" path="res://Scenes/Entities/player_controller.tscn" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://bko1vqovjcgo8" path="res://Scenes/Entities/player_pill.tscn" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://brxh4j66crg80" path="res://Scenes/Entities/npc.tscn" id="2_go701"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a02cp"]
 sky_horizon_color = Color(1.202401, 1.3681192, 1.2928836, 1)
@@ -22,12 +23,12 @@ tonemap_mode = 2
 [sub_resource type="BoxMesh" id="BoxMesh_a02cp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_go701"]
-albedo_color = Color(0.5294118, 0.011764706, 0.7254902, 1)
+albedo_color = Color(0.40363345, 0.44684935, 0.29901007, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_go701"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5a7ea"]
-albedo_color = Color(1, 0, 1, 1)
+albedo_color = Color(0.34237343, 0.20906562, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8j60k"]
 
@@ -90,16 +91,8 @@ shape = SubResource("BoxShape3D_8j60k")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=527794572]
 
-[node name="Player Controller" parent="." unique_id=1562478498 instance=ExtResource("1_a02cp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2487836, 0)
+[node name="Player Body" parent="." unique_id=1805124832 instance=ExtResource("1_a02cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1499157, 0)
 
-[node name="Procedural Anim" parent="Player Controller" index="1" unique_id=1105329259]
-visible = false
-step_distance_max = 1.0
-
-[editable path="Player Controller"]
-[editable path="Player Controller/CharacterBody3D"]
-[editable path="Player Controller/CharacterBody3D/Guy"]
-[editable path="Player Controller/Procedural Anim"]
-[editable path="Player Controller/Procedural Anim/Torso/Running"]
-[editable path="Player Controller/Procedural Anim/Torso/X Bot"]
+[node name="NPC" parent="." unique_id=440338480 instance=ExtResource("2_go701")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0775926, -6.5464115)

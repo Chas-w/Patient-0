@@ -16,7 +16,6 @@ extends Node3D
 @export_category("Control Categories")
 @export var all_limbs_and_checkers : Array[Marker3D]
 @export var hips : Marker3D
-@export var torso : Marker3D
 @export var shoulders : Marker3D
 
 @export_category("Movement Constraints")
@@ -41,8 +40,6 @@ func _ready():
 
 func _process(delta):
 	pass
-	torso.global_position = character_body.global_position
-	torso.rotation = character_body.global_rotation
 
 func _step_checker():
 	if(step_left.get_collider().is_in_group("Ground")):
